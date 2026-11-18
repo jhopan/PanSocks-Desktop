@@ -90,7 +90,7 @@ jobs:
   # macOS: satu tarball universal (lipo menyatukan Intel + Apple Silicon).
   macos:
     needs: build
-    runs-on: macos-14
+    runs-on: macos-15
     defaults:
       run:
         working-directory: .

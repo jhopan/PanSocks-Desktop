@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Paket macOS untuk socksctl: satu tarball universal (Intel + Apple Silicon).
-# Dijalankan di CI (macos-14) atau lokal di macOS.
+# Dijalankan di CI (macos-15) atau lokal di macOS.
 set -euo pipefail
 
 HERE="$(cd "$(dirname "$0")" && pwd)"
