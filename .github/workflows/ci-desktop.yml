@@ -39,7 +39,7 @@ jobs:
         run: go test -count=1 ./internal/...
 
   gui-macos:
-    runs-on: macos-14
+    runs-on: macos-15
     defaults:
       run:
         working-directory: .
