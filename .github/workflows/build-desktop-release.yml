@@ -15,7 +15,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: desktop
+        working-directory: .
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -46,7 +46,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: desktop
+        working-directory: .
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -75,9 +75,9 @@ jobs:
         with:
           name: SocksClientLinux
           path: |
-            desktop/dist/*.deb
-            desktop/dist/SocksClient-linux-*.tar.gz
-            desktop/dist/SHA256SUMS-linux.txt
+            dist/*.deb
+            dist/SocksClient-linux-*.tar.gz
+            dist/SHA256SUMS-linux.txt
 
       - name: Attach to release
         if: startsWith(github.ref, 'refs/tags/')
@@ -93,7 +93,7 @@ jobs:
     runs-on: macos-14
     defaults:
       run:
-        working-directory: desktop
+        working-directory: .
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -113,8 +113,8 @@ jobs:
         with:
           name: SocksClientMacOS
           path: |
-            desktop/dist/SocksClient-macos-universal-*.tar.gz
-            desktop/dist/SHA256SUMS-macos.txt
+            dist/SocksClient-macos-universal-*.tar.gz
+            dist/SHA256SUMS-macos.txt
 
       - name: Attach to release
         if: startsWith(github.ref, 'refs/tags/')
@@ -130,7 +130,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: desktop
+        working-directory: .
 
     steps:
       - name: Checkout
@@ -186,14 +186,14 @@ jobs:
         with:
           name: SocksClientDesktop-Setup
           path: |
-            desktop/installer_output/*.exe
-            desktop/installer_output/SHA256SUMS.txt
+            installer_output/*.exe
+            installer_output/SHA256SUMS.txt
 
       - name: Upload app as artifact
         uses: actions/upload-artifact@v4
         with:
           name: SocksClientDesktop-exe
-          path: desktop/SocksClient.exe
+          path: SocksClient.exe
 
       # Kebijakan rilis: hanya tiga rilis yang dipertahankan - core, APK terbaru,
       # installer terbaru. Rilis lama dihapus di sini supaya halaman Releases tetap
@@ -229,8 +229,8 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            desktop/installer_output/*.exe
-            desktop/installer_output/SHA256SUMS.txt
+            installer_output/*.exe
+            installer_output/SHA256SUMS.txt
           name: "Socks Client Desktop ${{ env.VERSION }}"
           body: |
             ## Socks Client Desktop ${{ env.VERSION }} - Windows

@@ -1,62 +1,23 @@
-# === Android ===
-# Built files
-*.apk
-*.aab
-*.ap_
-build/
-app/build/
-
-# IDE
-.idea/
-*.iml
-*.iws
-*.ipr
-
-# Gradle
-.gradle/
-local.properties
-captures/
-
-# === Build inputs (fetched from the "core" release, never committed) ===
-desktop/embed/sing-box.exe
-android/app/libs/libbox.aar
-
-# === Desktop ===
 # Binaries
-socks-client*.exe
 SocksClient.exe
+socks-client*.exe
 
 # Build artifacts
 installer_output/
-desktop/dist/
-/cfg/
+dist/
+.build/
 
-# Runtime
+# Core sing-box: diunduh lewat scripts/fetch-core*.sh, tidak pernah masuk git
+embed/sing-box.exe
+embed-unix/
+
+# Auto-generated saat runtime
 settings.json
 config.json
 sing-box.log
 .lock
-
-# === Root ===
-# Android build outputs live under android/app/build (already covered above).
-# NOTE: jangan pernah menulis pola telanjang "app/" di sini - dia cocok dengan
-# SETIAP folder bernama app, termasuk android/app/** sehingga file Java baru
-# ikut terabaikan tanpa terlihat (pernah terjadi pada SecurePrefs.java).
-
-# Recompile tools (not part of app)
-sing-box-recompile/
+/cfg/
 
 # OS
 .DS_Store
 Thumbs.db
-
-# Signing material - jangan pernah masuk git
-*.jks
-*.keystore
-
-# Docs internal (bukan untuk publik)
-AGENTS.md
-CONTRIBUTING.md
-
-# Samples (eksperimen, bukan bagian rilis)
-samples/

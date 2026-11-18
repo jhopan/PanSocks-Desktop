@@ -3,12 +3,7 @@ name: CI (Desktop)
 on:
   push:
     branches: [main]
-    paths:
-      - 'desktop/**'
-      - '.github/workflows/ci-desktop.yml'
   pull_request:
-    paths:
-      - 'desktop/**'
   workflow_dispatch:
 
 jobs:
@@ -17,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: desktop
+        working-directory: .
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -47,7 +42,7 @@ jobs:
     runs-on: macos-14
     defaults:
       run:
-        working-directory: desktop
+        working-directory: .
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -68,12 +63,10 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: desktop
+        working-directory: .
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          lfs: true
 
       - name: Setup Go
         uses: actions/setup-go@v5

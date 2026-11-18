@@ -1,3 +1,0 @@
-# No binaries are tracked in git anymore. The minimal sing-box core is built by
-# .github/workflows/build-core.yml and published in the "core" release; fetch it
-# with desktop/scripts/fetch-core.sh (Windows) or android/scripts/fetch-core.sh.
